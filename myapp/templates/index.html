@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Index</title>
+    <!-- Just for add static file we should add bottom tag: -->
+    {% load static %}
+    <!-- Just for add JS file we should add bottom tag: -->
+    <!-- <script src="{% static '/js/script.js' %}"></script> -->
+    <!-- Just for add CSS file we should add bottom tag: -->
+    <link href="{% static 'css/style.css' %}" rel="stylesheet">
+</head>
+
+<body>
+    <!-- for test a statics file with address .../hello -->
+    <!-- <h1>Welcome to Django!!!</h1> -->
+    <!-- <img src="{% static '/wallpaper.jpg' %}" alt="My image" height="500px" width="400px" /> -->
+
+    <!-- To show a Object details with address : .../index -->
+    <!-- <h3>Student name is {{student}}</h3> -->
+    <!-- <h4>His degree is {{degree}}</h4> -->
+
+    <!-- To show the local time with address: .../showtiime  -->
+    <!-- <h5>The is {{clock}}</h5> -->
+
+    <!-- To Show a MODEL FORM with address: .../modelform -->
+    <!-- <form method="post" class="post-form">
+        {% csrf_token %}  
+        {{ form.as_p }}  
+        <button type="submit" class="save btn btn-default">Save</button>  
+    </form> -->
+
+    <!-- To Show a Django FORM with address: .../djangoform -->
+    <!-- <form method="POST" class="post-form">  
+        {% csrf_token %}  
+        {{ form.as_p }}  
+        <button type="submit" class="save btn btn-default">Save</button>  
+    </form>   -->
+
+    <!-- To Show a Django FORM VALIDATION with address: .../formvalidation -->
+    <!-- <form method="POST" class="post-form" enctype="multipart/form-data">  
+        {% csrf_token %}  
+        {{ form.as_p }}  
+        <button type="submit" class="save btn btn-default">Save</button>  
+    </form>   -->
+
+    <!-- To show upload file -->
+    <form method="POST" class="post-form" enctype="multipart/form-data">  
+        {% csrf_token %}  
+        {{ form.as_p }}  
+        <button type="submit" class="save btn btn-default">Save</button>  
+    </form>  
+</body>
+
+</html>
