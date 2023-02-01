@@ -7,6 +7,8 @@ from django.views.decorators.http import require_http_methods
 from django.template import loader
 from myapp.form import *
 from myapp.functions.functions import handle_uploaded_file  
+from django.core.exceptions import ObjectDoesNotExist
+import csv
 
 # Create your views here.
 
@@ -74,3 +76,40 @@ def fileupload(request):
         student = StudentForm()
         return render(request,"index.html",{'form':student})
 
+# Note: Exception Test
+def getdata(request):  
+    try:  
+        data = Employee.objects.get(eid="12")  
+    except ObjectDoesNotExist:  
+        return HttpResponse("Exception: Data not found")  
+    return HttpResponse(data)
+
+# Note: Session Test
+def setsession(request):
+    request.session['sname'] = 'Mohammad'
+    request.session['semail'] = 'mohammad@gmail.com'
+    return HttpResponse('Session is set!')
+
+def getsession(request):
+    studentname = request.session['sname']
+    studentemail = request.session['semail']
+    return HttpResponse(studentname+ " " +studentemail)
+
+# Note: Cookie Test
+def setcookie(request):
+    response = HttpResponse("Cookie Set!")
+    response.set_cookie('MohammadCookie' , 'MohammadCookie2')
+    return response
+
+def getcookie(request):
+    cookieTest = request.COOKIES['MohammadCookie']
+    return HttpResponse('The cookie is: ' + cookieTest)
+
+# Note: CSV Files Test
+def csv(request):
+    response = HttpResponse(content_type = 'text/csv')
+    response['Content-Disposition'] = 'attachment; filename="file.csv"'
+    writer = csv.writer(response)
+    writer.writerow(['1001', 'John', 'Domil', 'CA'])
+    writer.writerow(['1002', 'Amit', 'Mukharji', 'LA', '"Testing"'])
+    return response

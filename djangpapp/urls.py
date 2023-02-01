@@ -27,4 +27,10 @@ urlpatterns = [
     path('djangoform/', views.djangoform),
     path('formvalidation/', views.employee),
     path('fileupload/', views.fileupload),
+    path('getdata/', views.getdata),
+    path('ssession/', views.setsession),
+    path('gsession/', views.getsession),
+    path('setcookie/', views.setcookie),
+    path('getcookie/', views.getcookie),
+    path('csv/', views.csv),
 ]
