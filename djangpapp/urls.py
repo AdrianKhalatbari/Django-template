@@ -14,23 +14,30 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
-from myapp import views
-
+from django.urls import path,include
+from myapp import urls
+from employee import urls
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('hello/', views.hello),
-    path('index/', views.index),
-    path('show/', views.show),
-    path('showtiime/', views.showtiime),
-    path('modelform/', views.modelform),
-    path('djangoform/', views.djangoform),
-    path('formvalidation/', views.employee),
-    path('fileupload/', views.fileupload),
-    path('getdata/', views.getdata),
-    path('ssession/', views.setsession),
-    path('gsession/', views.getsession),
-    path('setcookie/', views.setcookie),
-    path('getcookie/', views.getcookie),
-    path('csv/', views.csv),
+    path('', include('myapp.urls')),
+    path('', include('employee.urls')), 
+    # path('hello/', include(myappViews.hello)),
+    # path('index/', include(myappViews.index)),
+    # path('show/', include(myappViews.show)),
+    # path('showtiime/', include(myappViews.showtiime)),
+    # path('modelform/', include(myappViews.modelform)),
+    # path('djangoform/', include(myappViews.djangoform)),
+    # path('formvalidation/', include(myappViews.employee)),
+    # path('fileupload/', include(myappViews.fileupload)),
+    # path('getdata/', include(myappViews.getdata)),
+    # path('ssession/', include(myappViews.setsession)),
+    # path('gsession/', include(myappViews.getsession)),
+    # path('setcookie/', include(myappViews.setcookie)),
+    # path('getcookie/', include(myappViews.getcookie)),
+    # path('csv/', include(myappViews.csv)),
+    # path('emp', include(employeeViews.emp)),
+    # path('show',include(employeeViews.show)),  
+    # path('edit/<int:id>', include(employeeViews.edit)),  
+    # path('update/<int:id>', include(employeeViews.update)),  
+    # path('delete/<int:id>', include(employeeViews.destroy)),  
 ]
