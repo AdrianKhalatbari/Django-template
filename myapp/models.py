@@ -12,7 +12,6 @@ class Student(models.Model):
     email = models.EmailField(max_length=50)
     age = models.IntegerField()
     # This under calss need for create Model forms!!!
-
     class Meta:
         db_table = 'student'
 
@@ -21,6 +20,5 @@ class Employee(models.Model):
     eid = models.CharField(max_length=20)
     ename = models.CharField(max_length=100)
     econtact = models.CharField(max_length=15)
-
     class Meta:
         db_table = 'employee'
