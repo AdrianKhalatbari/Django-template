@@ -113,3 +113,8 @@ def csv(request):
     writer.writerow(['1001', 'John', 'Domil', 'CA'])
     writer.writerow(['1002', 'Amit', 'Mukharji', 'LA', '"Testing"'])
     return response
+
+# Note: Redirect test
+def redirect_view(request):
+    response = redirect('/redirect_success/')
+    return response

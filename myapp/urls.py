@@ -17,4 +17,5 @@ urlpatterns = [
     path('setcookie/', views.setcookie),
     path('getcookie/', views.getcookie),
     path('csv/', views.csv),
+    path('redirect/', views.redirect_view),
 ]
