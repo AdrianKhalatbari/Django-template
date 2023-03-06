@@ -5,10 +5,15 @@ from django.http import HttpResponse, HttpResponseNotFound
 from django.shortcuts import redirect
 from django.views.decorators.http import require_http_methods
 from django.template import loader
-from myapp.form import *
+from myapp.form import StudentForm
+from myapp.form import EmployeeForm
+from myapp.form import EmpForm
+from myapp.form import Employee
 from myapp.functions.functions import handle_uploaded_file  
 from django.core.exceptions import ObjectDoesNotExist
 import csv
+from django.contrib.auth.forms import UserCreationForm
+from django.contrib import messages
 
 # Create your views here.
 
@@ -113,3 +118,17 @@ def csv(request):
     writer.writerow(['1001', 'John', 'Domil', 'CA'])
     writer.writerow(['1002', 'Amit', 'Mukharji', 'LA', '"Testing"'])
     return response
+
+# User creation form
+def register(request):  
+    if request.POST == 'POST':  
+        form = UserCreationForm()  
+        if form.is_valid():  
+            form.save()  
+        messages.success(request, 'Account created successfully')
+    else:
+        form = UserCreationForm()  
+        context = {  
+            'form':form  
+        }  
+        return render(request, 'register.html', context)  
